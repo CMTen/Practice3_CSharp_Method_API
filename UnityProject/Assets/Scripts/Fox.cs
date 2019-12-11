@@ -11,11 +11,6 @@ public class Fox : MonoBehaviour
 
     private float thrust = 3.0f;
 
-    private void Start()
-    {
-        Rig = gameObject.AddComponent<Rigidbody2D>();
-    }
-
     private void Update()
     {
         if (Input.GetKey("d"))
@@ -32,8 +27,7 @@ public class Fox : MonoBehaviour
         }
         else if (Input.GetKeyDown("w"))
         {
-            Input.GetAxisRaw("Horizontal");
-            transform.Translate(0, High * Time.deltaTime, 0);
+            Rig.AddForce(new Vector2(0, 1000));
         }
     }
 }
