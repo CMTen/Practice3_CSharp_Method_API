@@ -5,6 +5,7 @@ public class Fox : MonoBehaviour
     [Header("移動速度"), Range(0, 99)]
     public float speed = 10f;
     private float High = 150f;
+    private float jumpCounter = 0.0f;
 
     public Rigidbody2D Rig;
     public SpriteRenderer SR;
@@ -19,13 +20,13 @@ public class Fox : MonoBehaviour
             Input.GetAxisRaw("Horizontal");
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }
-        else if (Input.GetKey("a"))
+        if (Input.GetKey("a"))
         {
             SR.flipX = true;
             Input.GetAxisRaw("Horizontal");
             transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
-        else if (Input.GetKeyDown("w"))
+        if (Input.GetKeyDown("w"))
         {
             Rig.AddForce(new Vector2(0, 1000));
         }
